@@ -1,0 +1,44 @@
+/* Asegura que la página ocupe toda la pantalla */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Ajusta la altura del carrusel */
+.carousel img {
+    height: 100vh;
+    object-fit: cover;
+}
+
+/* Capa superpuesta para el contenido */
+.overlay {
+    top: 0;
+    left: 0;
+    z-index: 10; /* Se asegura de estar por encima del carrusel */
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5); /* Oscurece el fondo para resaltar el texto */
+    color: white;
+}
+
+/* Estilo del título */
+.title {
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Estilos de los botones */
+.buttons {
+    margin-top: 20px;
+    position: relative;
+}
+
+/* Botón "No" que se mueve */
+.no-btn {
+    position: absolute;
+    left: 60%;
+    transform: translateX(-50%);
+    transition: top 0.3s, left 0.3s;
+}
