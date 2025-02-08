@@ -12,14 +12,38 @@ body, html {
     object-fit: cover;
 }
 
-/* Capa superpuesta para el contenido */
-.overlay {
+/* Carrusel de fondo con filtro oscuro */
+#carouselBackground {
+    position: fixed;
     top: 0;
     left: 0;
-    z-index: 10; /* Se asegura de estar por encima del carrusel */
-    text-align: center;
-    background: rgba(0, 0, 0, 0.5); /* Oscurece el fondo para resaltar el texto */
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Lo envía detrás del contenido */
+}
+
+/* Filtro oscuro sobre el carrusel */
+#carouselBackground::after {
+    content: ''; /* Necesario para generar la capa */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.60); /* Filtro oscuro con 50% de opacidad */
+    z-index: 1; /* Asegura que esté sobre las imágenes del carrusel, pero debajo del contenido */
+}
+
+/* Capa superpuesta para el contenido */
+.overlay {
+    position: relative;
+    z-index: 10;
     color: white;
+    text-align: center;
+    display: flex; /* Asegura que los elementos dentro de la capa se alineen con flexbox */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: 100vh; /* Asegura que la capa ocupe toda la altura de la ventana */
 }
 
 /* Estilo del título */
@@ -33,12 +57,46 @@ body, html {
 .buttons {
     margin-top: 20px;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Botón "No" que se mueve */
+/* Botón "No" que se moverá */
 .no-btn {
-    position: absolute;
-    left: 60%;
-    transform: translateX(-50%);
+    position: relative;
     transition: top 0.3s, left 0.3s;
+}
+
+/* GIF de reacción */
+.reaction-gif {
+    width: 150px;
+    margin-bottom: 15px;
+}
+.gif {
+    width: 200px; /* Tamaño ajustable */
+    height: auto;
+}
+
+/* GIFs decorativos */
+.gif-small {
+    width: 80px; /* Tamaño ajustable */
+    height: auto;
+}
+
+/* Mensaje de amor */
+.love-message {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+/* Estilos para las imágenes del álbum */
+.album-img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    aspect-ratio: 1 / 1; /* Mantiene proporción cuadrada */
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    object-fit: cover;
 }

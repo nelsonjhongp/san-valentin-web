@@ -11,7 +11,7 @@
 <body>
 
     <!-- Carrusel de imágenes -->
-    <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div id="carouselBackground" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img src="img/imagen1.jpg" class="d-block w-100" alt="Imagen 1">
@@ -28,9 +28,10 @@
     <!-- Capa de contenido sobre el carrusel -->
     <div class="overlay position-absolute w-100 h-100 d-flex flex-column justify-content-center align-items-center">
         <h1 class="title" id="question">¿Quieres ser mi San Valentín?</h1>
+        <img id="reaction-gif" src="img/waiting.gif" class="gif img-fluid mb-3">
         <div class="buttons" id="buttons">
-            <button class="btn btn-success btn-lg" onclick="acceptProposal()">Sí</button>
-            <button class="btn btn-danger no-btn btn-lg" id="no-btn" onclick="moveNoButton()" onmouseover="moveNoButton()">No</button>
+            <button class="btn btn-success btn-lg me-5" onclick="acceptProposal()">Sí</button>
+            <button class="btn btn-danger no-btn btn-lg" id="no-btn" onclick="handleNoClick()">No</button>
         </div>
     </div>
 
